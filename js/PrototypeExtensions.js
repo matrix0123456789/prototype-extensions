@@ -35,3 +35,20 @@ if (!Array.prototype.sum) {
         return ret;
     }
 }
+if (!Array.prototype.sortBy) {
+    Array.prototype.sortBy = function () {
+        let orders = Array.from(arguments).map(x => typeof x == 'function' ? x : y => y[x]);
+        let compareFunction = (a, b) => {
+            for (let order of orders) {
+                let valueA = order(a);
+                let valueB = order(b);
+                if (valueA > valueB)
+                    return 1;
+                else if (valueA < valueB)
+                    return -1;
+            }
+            return 0;
+        };
+        return this.sort(compareFunction);
+    }
+}
