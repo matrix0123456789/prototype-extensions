@@ -4,5 +4,11 @@
   "description": "Prototype Extensions JS",
   "main": "entry.js",
   "author": "Mateusz Krawczyk <matrix0123456789@tlen.pl>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "fast-check": "^1.13.0",
+    "mocha": "^6.1.2"
+  },"scripts": {
+  "test": "mocha tests"
+}
 }
