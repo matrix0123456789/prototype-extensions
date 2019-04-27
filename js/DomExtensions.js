@@ -11,6 +11,8 @@ if (!HTMLDocument.prototype.create && !HTMLElement.prototype.addChild) {
                 element.textContent = attributes.text;
             } else if (attrName === 'html') {
                 element.innerHTML = attributes.html;
+            } else if (attrName === 'data') {
+                Object.assign(element.dataset, attributes.data);
             } else {
                 element.setAttribute(attrName, attributes[attrName]);
             }
