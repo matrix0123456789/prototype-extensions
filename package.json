@@ -1,6 +1,6 @@
 {
   "name": "prototype-extensions",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Prototype Extensions JS",
   "main": "entry.js",
   "author": "Mateusz Krawczyk <matrix0123456789@tlen.pl>",

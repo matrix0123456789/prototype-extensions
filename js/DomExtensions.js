@@ -13,6 +13,8 @@ if (!HTMLDocument.prototype.create && !HTMLElement.prototype.addChild) {
                 element.innerHTML = attributes.html;
             } else if (attrName === 'data') {
                 Object.assign(element.dataset, attributes.data);
+            } else if (attrName === 'children') {
+				attributes.children.forEach(x=>element.addChild(x.tagName,x));
             } else {
                 element.setAttribute(attrName, attributes[attrName]);
             }
