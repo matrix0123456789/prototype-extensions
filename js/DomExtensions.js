@@ -1,28 +1,11 @@
+import {create} from 'fast-creator';
+
 if (!HTMLDocument.prototype.create && !HTMLElement.prototype.addChild) {
-    HTMLDocument.prototype.create = function (name, attributes = {}) {
-        let element = this.createElement(name);
-        for (let attrName in attributes) {
-            if (attrName === 'className') {
-                element.className = attributes[attrName];
-            } else if (attrName === 'classList') {
-                for (let x of attributes.classList)
-                    element.classList.add(x);
-            } else if (attrName === 'text') {
-                element.textContent = attributes.text;
-            } else if (attrName === 'html') {
-                element.innerHTML = attributes.html;
-            } else if (attrName === 'data') {
-                Object.assign(element.dataset, attributes.data);
-            } else if (attrName === 'children') {
-				attributes.children.forEach(x=>element.addChild(x.tagName,x));
-            } else {
-                element.setAttribute(attrName, attributes[attrName]);
-            }
-        }
-        return element;
+    HTMLDocument.prototype.create = function (selector, attributes = {}) {
+        return create(selector, attributes, this);
     };
-    HTMLElement.prototype.addChild = function (name, attributes = {}) {
-        let element = this.ownerDocument.create(name, attributes);
+    HTMLElement.prototype.addChild = function (selector, attributes = {}) {
+        let element = this.ownerDocument.create(selector, attributes);
         this.appendChild(element);
         return element;
     };

@@ -1,11 +1,9 @@
-Simple methods added to natie browser objects.
-# Basic samples
-``` javascript
-var array = [5,2,-3,11];
-console.log(array.min(x=>x))// -> -3
-console.log(array.min(x=>Math.abs(x)))// -> 2
-console.log(array.sum(x=>(x>0)?1:0))// -> 3
-```
+[![npm](https://badgen.net/npm/v/prototype-extensions)](https://www.npmjs.com/package/prototype-extensions)
+[![downloads](https://badgen.net/npm/dt/prototype-extensions)](https://www.npmjs.com/package/prototype-extensions)
+[![downloads](https://badgen.net/npm/license/prototype-extensions)](https://www.npmjs.com/package/prototype-extensions)
+[![downloads](https://badgen.net/npm/dependents/prototype-extensions)](https://www.npmjs.com/package/prototype-extensions)
+
+Simple methods added to native browser objects.
 
 #DOM extensions
 To generate:
@@ -21,6 +19,7 @@ in clean javascript
 
 ``` javascript
 let section=document.createElement('section');
+section.className='big red';
 let h1=document.createElement('h1');
 h1.textContent='Title';
 section.appendChild(h1);
@@ -34,8 +33,16 @@ document.body.appendChild(section);
 ```
 you type:
 ```javascript
-var section=document.body.addChild('section', {className:'big red'});
+var section=document.body.addChild('section.big.red');
 section.addChild('h1', {text:'Title'});
 section.addChild('p', {text:'Paragraph'});
 section.addChild('p', {text:'Paragraph'});
+```
+
+# Array extensions
+``` javascript
+var array = [5,2,-3,11];
+console.log(array.min(x=>x))// -> -3
+console.log(array.min(x=>Math.abs(x)))// -> 2
+console.log(array.sum(x=>(x>0)?1:0))// -> 3
 ```
