@@ -15,7 +15,7 @@ To generate:
 </section>
 ```
 
-in clean javascript
+in clean javascript you need to write
 
 ``` javascript
 let section=document.createElement('section');
@@ -31,13 +31,32 @@ p2.textContent='Paragraph';
 section.appendChild(p2);
 document.body.appendChild(section);
 ```
-you type:
+But using this lib you type:
 ```javascript
+import 'prototype-extensions';
+
 var section=document.body.addChild('section.big.red');
 section.addChild('h1', {text:'Title'});
 section.addChild('p', {text:'Paragraph'});
 section.addChild('p', {text:'Paragraph'});
 ```
+
+##avalible methods
+
+### document.create(selector, attributes)
+Generates and returns new element. You can define an element on two ways:
+* selector string - css-like selector
+* attributes object
+
+In this example all three elemens will be identical:
+```javascript
+let a = document.create('p#first.red');
+let a = document.create({tagname:'p',id:'first',className:'red'});
+let a = document.create('p',{id:'first',className:'red'});
+```
+
+### element.addChild(selector, attributes)
+Works like previous, but also adds created object by ```element.appendChild()```
 
 # Array extensions
 ``` javascript
