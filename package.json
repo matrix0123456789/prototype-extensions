@@ -1,13 +1,13 @@
 {
   "name": "prototype-extensions",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Prototype Extensions JS",
   "main": "entry.js",
   "author": "Mateusz Krawczyk <matrix0123456789@tlen.pl>",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/matrix0123456789/prototype-extensions"
+    "type": "git",
+    "url": "https://github.com/matrix0123456789/prototype-extensions"
   },
   "devDependencies": {
     "fast-check": "^1.16.0",
