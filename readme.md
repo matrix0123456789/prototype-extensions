@@ -5,7 +5,7 @@
 
 Simple methods added to native browser objects.
 
-#DOM extensions
+# DOM extensions
 To generate:
 ``` HTML
 <section class="big red">
@@ -41,7 +41,7 @@ section.addChild('p', {text:'Paragraph'});
 section.addChild('p', {text:'Paragraph'});
 ```
 
-##avalible methods
+## avalible methods
 
 ### document.create(selector, attributes)
 Generates and returns new element. You can define an element on two ways:
@@ -51,8 +51,8 @@ Generates and returns new element. You can define an element on two ways:
 In this example all three elemens will be identical:
 ```javascript
 let a = document.create('p#first.red');
-let a = document.create({tagname:'p',id:'first',className:'red'});
-let a = document.create('p',{id:'first',className:'red'});
+let b = document.create({tagname:'p',id:'first',className:'red'});
+let c = document.create('p',{id:'first',className:'red'});
 ```
 
 ### element.addChild(selector, attributes)
