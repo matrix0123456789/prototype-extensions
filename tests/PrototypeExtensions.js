@@ -2,9 +2,10 @@ require('../js/PrototypeExtensions');
 const fc = require('fast-check');
 const assert = require('assert');
 
-function equal(a,b){
-    a===b || (isNaN(a)&&isNaN(b));
+function equal(a, b) {
+    a === b || (isNaN(a) && isNaN(b));
 }
+
 // Properties
 describe('Array', () => {
     describe('min', () => {
@@ -132,7 +133,7 @@ describe('Array', () => {
             it('integers', () => {
                 fc.assert(fc.property(fc.array(fc.integer()), arr => {
                     let result = arr.sum();
-                        return typeof result == 'number' && Number.isInteger(result);
+                    return typeof result == 'number' && Number.isInteger(result);
                 }));
             });
             it('double', () => {
@@ -142,15 +143,44 @@ describe('Array', () => {
                 }));
             });
             it('random', () => {
-                fc.assert(fc.property(fc.array(fc.anything()),fc.context(), (arr,ctx) => {
-                    let result = arr.sum(x=>Math.random());
+                fc.assert(fc.property(fc.array(fc.anything()), fc.context(), (arr, ctx) => {
+                    let result = arr.sum(x => Math.random());
                     return Number.isFinite(result);
                 }));
             });
-                it('equal', () => {
-                fc.assert(fc.property(fc.array(fc.anything()),fc.context(), (arr,ctx) => {
-                    let result = arr.sum(x=>1);
-                    return  result===arr.length;
+            it('equal', () => {
+                fc.assert(fc.property(fc.array(fc.anything()), fc.context(), (arr, ctx) => {
+                    let result = arr.sum(x => 1);
+                    return result === arr.length;
+                }));
+            });
+        });
+    });
+    describe('groupBy', () => {
+
+        it('sample test', () => {
+            assert.deepEqual([].groupBy(), new Map());
+            assert.deepEqual([1, 2].groupBy(), new Map([[1, [1]], [2, [2]]]));
+            const test = [
+                {group: 1, name: 'A'},
+                {group: 1, name: 'B'},
+                {group: 1, name: 'C'},
+                {group: 2, name: 'D'},
+            ];
+            assert.deepEqual(test.groupBy(x => x.group), new Map([[1, [test[0], test[1], test[2]]], [2, [test[3]]]]));
+        });
+        describe('property based', () => {
+            it('random', () => {
+                fc.assert(fc.property(fc.array(fc.anything()), arr => {
+                    let result = arr.groupBy(x => x);
+                    return result instanceof Map && Array.from(result).length <= arr.length && Array.from(result).flatMap(x => x[1]).length === arr.length && !Array.from(result).some(x => !(x[1] instanceof Array));
+                }));
+            });
+            it('integer', () => {
+                fc.assert(fc.property(fc.array(fc.integer()), arr => {
+                    let result = arr.groupBy(x => x);
+                    let allResulted = Array.from(result).flatMap(x => x[1]);
+                    return !arr.some(x => !allResulted.includes(x)) && !allResulted.some(x => !arr.includes(x))
                 }));
             });
         });

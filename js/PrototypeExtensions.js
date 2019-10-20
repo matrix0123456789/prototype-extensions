@@ -1,47 +1,43 @@
 if (!Array.prototype.max) {
     Array.prototype.max = function (fun = x => x) {
-        let max = null;
-        let maxObj = null;
-        for (let x of this) {
-            var v = fun(x);
-            if (typeof v === 'number' && !isNaN(v)&& (max == null || v > max)) {
-                max = v;
-                maxObj = x;
+        let value = null;
+        let object = null;
+        for (let item of this) {
+            const itemValue = fun(item);
+            if (typeof itemValue === 'number' && !isNaN(itemValue) && (value == null || itemValue > value)) {
+                value = itemValue;
+                object = item;
             }
         }
-        return maxObj;
+        return object;
     }
 }
 if (!Array.prototype.min) {
     Array.prototype.min = function (fun = x => x) {
-        let min = null;
-        let minObj = null;
-        for (let x of this) {
-            var v = fun(x);
-            if (typeof v === 'number' && !isNaN(v)&& (min == null || v < min)) {
-                min = v;
-                minObj = x;
+        let value = null;
+        let object = null;
+        for (let item of this) {
+            const itemValue = fun(item);
+            if (typeof itemValue === 'number' && !isNaN(itemValue) && (value == null || itemValue < value)) {
+                value = itemValue;
+                object = item;
             }
         }
-        return minObj;
+        return object;
     }
 }
 if (!Array.prototype.sum) {
-    Array.prototype.sum = function (fun= x => x) {
-        var ret = 0;
-        for (let x of this) {
-            ret += Number(fun(x));
-        }
-        return ret;
+    Array.prototype.sum = function (fun = x => x) {
+        return this.reduce((sum, item) => sum + Number(fun(item)), 0);
     }
 }
 if (!Array.prototype.sortBy) {
-    Array.prototype.sortBy = function () {
-        let orders = Array.from(arguments).map(x => typeof x == 'function' ? x : y => y[x]);
-        let compareFunction = (a, b) => {
-            for (let order of orders) {
-                let valueA = order(a);
-                let valueB = order(b);
+    Array.prototype.sortBy = function (...args) {
+        const orders = args.map(x => typeof x == 'function' ? x : y => y[x]);
+        const compareFunction = (a, b) => {
+            for (const order of orders) {
+                const valueA = order(a);
+                const valueB = order(b);
                 if (valueA > valueB)
                     return 1;
                 else if (valueA < valueB)
@@ -50,5 +46,18 @@ if (!Array.prototype.sortBy) {
             return 0;
         };
         return this.sort(compareFunction);
+    }
+}
+if (!Array.prototype.groupBy) {
+    Array.prototype.groupBy = function (fun = x => x) {
+        const ret = new Map();
+        for (const value of this) {
+            const key = fun(value);
+            if (ret.has(key))
+                ret.get(key).push(value);
+            else
+                ret.set(key, [value]);
+        }
+        return ret;
     }
 }
