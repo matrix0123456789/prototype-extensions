@@ -1,6 +1,6 @@
 {
   "name": "prototype-extensions",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Prototype Extensions JS",
   "main": "entry.js",
   "author": "Mateusz Krawczyk <matrix0123456789@tlen.pl>",
@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "fast-check": "^1.16.0",
-    "mocha": "^6.2.0"
+    "mocha": "^7.0.1"
   },
   "scripts": {
     "test": "mocha tests"

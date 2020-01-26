@@ -2,6 +2,7 @@
 [![downloads](https://badgen.net/npm/dt/prototype-extensions)](https://www.npmjs.com/package/prototype-extensions)
 [![downloads](https://badgen.net/npm/license/prototype-extensions)](https://www.npmjs.com/package/prototype-extensions)
 [![downloads](https://badgen.net/npm/dependents/prototype-extensions)](https://www.npmjs.com/package/prototype-extensions)
+![Test](https://github.com/matrix0123456789/prototype-extensions/workflows/Test/badge.svg)
 
 Simple methods added to native browser objects.
 
