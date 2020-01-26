@@ -66,3 +66,6 @@ console.log(array.min(x=>x))// -> -3
 console.log(array.min(x=>Math.abs(x)))// -> 2
 console.log(array.sum(x=>(x>0)?1:0))// -> 3
 ```
+
+# Read more
+https://thebugger.home.blog/2019/10/20/javascript-tricks-1-extendings-prototypes/
