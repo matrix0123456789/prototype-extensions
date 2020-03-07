@@ -61,3 +61,21 @@ if (!Array.prototype.groupBy) {
         return ret;
     }
 }
+if (!Array.prototype.replaceContent) {
+    Array.prototype.replaceContent = function (newContent) {
+        this.splice(0, this.length);
+        for (let item of newContent) {
+            this.push(item);
+        }
+    }
+}
+if (!Array.prototype.removeItem) {
+    Array.prototype.removeItem = function (item) {
+        for (let i = 0; i < this.length;) {
+            if (this[i] === item || (Number.isNaN(this[i]) && Number.isNaN(item)))
+                this.splice(i, 1);
+            else
+                i++;
+        }
+    }
+}

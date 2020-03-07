@@ -185,5 +185,43 @@ describe('Array', () => {
             });
         });
     });
+    describe('replaceContent', () => {
+        it('sample test', () => {
+            const oryginal = [1, 2, 3];
+            const wanted = ['a', 'b', 'c', 'd'];
+            oryginal.replaceContent(wanted);
+            assert.deepEqual(wanted, oryginal);
+            assert.notEqual(wanted, oryginal);
+        });
+        describe('property based', () => {
+            it('random', () => {
+                fc.assert(fc.property(fc.array(fc.anything()), arr => {
+                    arr.replaceContent([1, 2, 3]);
+                    return arr[0] === 1 && arr[1] === 2 && arr[2] === 3 && arr.length === 3;
+                }));
+            });
+        });
+    });
+    describe('remove', () => {
+        it('sample test', () => {
+            const arr = ['one', 'two', 'three', {}];
+            arr.removeItem('two');
+            assert.deepEqual(['one', 'three', {}], arr);
+            arr.removeItem({});
+            assert.deepEqual(['one', 'three', {}], arr);
+        });
+        describe('property based', () => {
+            it('first', () => {
+                fc.assert(fc.property(fc.array(fc.anything()), arr => {
+                    const oryginalLength = arr.length;
+                    arr.removeItem(arr[0]);
+                    if (oryginalLength === 0)
+                        return arr.length === 0
+                    else
+                        return arr.length <= oryginalLength - 1;
+                }));
+            });
+        });
+    });
 });
 
