@@ -1,8 +1,8 @@
 {
   "name": "prototype-extensions",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Prototype Extensions JS",
-  "main": "entry.js",
+  "main": "dist/entry.js",
   "author": "Mateusz Krawczyk <matrix0123456789@tlen.pl>",
   "license": "MIT",
   "repository": {
@@ -10,14 +10,17 @@
     "url": "https://github.com/matrix0123456789/prototype-extensions"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "fast-check": "^1.16.0",
     "mocha": "^7.0.1"
   },
   "scripts": {
-    "test": "mocha tests"
+    "test": "mocha tests",
+    "build": "babel js -d dist"
   },
   "dependencies": {
     "fast-creator": "^1.0.0"
   }
 }
-
