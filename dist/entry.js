@@ -1,5 +1,5 @@
 "use strict";
 
-require("./js/PrototypeExtensions");
+require("./PrototypeExtensions");
 
-require("./js/DomExtensions");
+require("./DomExtensions");

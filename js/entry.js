@@ -1,2 +1,2 @@
-import './js/PrototypeExtensions';
-import './js/DomExtensions';
+import './PrototypeExtensions';
+import './DomExtensions';
