@@ -9,6 +9,9 @@ if (!HTMLDocument.prototype.create && !HTMLElement.prototype.addChild) {
         this.appendChild(element);
         return element;
     };
+    if (window.ShadowRoot) {
+        ShadowRoot.prototype.addChild = HTMLElement.prototype.addChild;
+    }
 }
 if (!HTMLCollection.prototype.removeAll) {
     HTMLCollection.prototype.removeAll = function () {
