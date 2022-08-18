@@ -13,6 +13,7 @@ if (!Array.prototype.max) {
     }
 }
 if (!Array.prototype.min) {
+
     Array.prototype.min = function (fun = x => x) {
         let value = null;
         let object = null;
@@ -77,5 +78,10 @@ if (!Array.prototype.removeItem) {
             else
                 i++;
         }
+    }
+}
+if (!Array.prototype.distinct) {
+    Array.prototype.distinct = function () {
+        return [...new Set(this)];
     }
 }

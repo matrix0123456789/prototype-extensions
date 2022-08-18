@@ -223,5 +223,26 @@ describe('Array', () => {
             });
         });
     });
+    describe('distinct', () => {
+        it('sample test', () => {
+            const arr = ['one', 'two', 'three', 'one'];
+            const r = arr.distinct();
+            assert.deepEqual(['one', 'two', 'three'], r);
+        });
+        describe('property based', () => {
+            it('first', () => {
+                fc.assert(fc.property(fc.array(fc.anything()), arr => {
+                    const r = arr.distinct();
+                    return r.length <= arr.length;
+                }));
+            });
+        });
+    });
+    describe('sortBy', () => {
+        it('sample test', () => {
+            const arr = [5,7,22,-33];
+            arr.sortBy(x=>+x);
+            assert.deepEqual([-33,5,7,22], arr);
+        });
+    });
 });
-

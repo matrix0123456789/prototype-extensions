@@ -45,3 +45,12 @@ if (!Node.prototype.findParent) {
             return null;
     };
 }
+Node.prototype.__defineGetter__('allParentNodes', function () {
+    const ret = [];
+    let node = this;
+    while (node.parentNode) {
+        ret.push(node.parentNode);
+        node = node.parentNode;
+    }
+    return ret;
+});

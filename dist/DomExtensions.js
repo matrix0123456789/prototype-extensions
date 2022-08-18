@@ -20,6 +20,10 @@ if (!HTMLDocument.prototype.create && !HTMLElement.prototype.addChild) {
     this.appendChild(element);
     return element;
   };
+
+  if (window.ShadowRoot) {
+    ShadowRoot.prototype.addChild = HTMLElement.prototype.addChild;
+  }
 }
 
 if (!HTMLCollection.prototype.removeAll) {
@@ -56,3 +60,15 @@ if (!Node.prototype.findParent) {
     if (ret) return this;else if (this.parentNode && this.parentNode instanceof Element) return this.parentNode.findParent(fun);else return null;
   };
 }
+
+Node.prototype.__defineGetter__('allParentNodes', function () {
+  var ret = [];
+  var node = this;
+
+  while (node.parentNode) {
+    ret.push(node.parentNode);
+    node = node.parentNode;
+  }
+
+  return ret;
+});
