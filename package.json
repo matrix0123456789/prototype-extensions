@@ -1,6 +1,6 @@
 {
   "name": "prototype-extensions",
-  "version": "1.9.1",
+  "version": "1.10.0",
   "description": "Prototype Extensions JS",
   "main": "dist/entry.js",
   "author": "Mateusz Krawczyk <matrix0123456789@tlen.pl>",
@@ -21,6 +21,6 @@
     "build": "babel js -d dist"
   },
   "dependencies": {
-    "fast-creator": "^1.0.0"
+    "fast-creator": "^1.6.0"
   }
 }

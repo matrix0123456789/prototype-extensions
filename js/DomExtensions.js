@@ -21,6 +21,14 @@ if (!HTMLCollection.prototype.removeAll) {
         }
     };
 }
+if (!NodeList.prototype.removeAll) {
+    NodeList.prototype.removeAll = function () {
+        let copy = Array.prototype.slice.call(this);
+        for (let element of copy) {
+            element.remove();
+        }
+    };
+}
 
 HTMLElement.prototype.__defineGetter__('offsetTopFull', function () {
     if (this.offsetParent)

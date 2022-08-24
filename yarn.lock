@@ -1240,10 +1240,10 @@ fast-check@^1.16.0:
     pure-rand "^2.0.0"
     tslib "^1.10.0"
 
-fast-creator@^1.0.0:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/fast-creator/-/fast-creator-1.0.2.tgz#ad66386c9c2cdd8eda1c1ffe4a7b3ecb89f4eab0"
-  integrity sha512-BKPffvcGlbxNbBUzmkBTz71q8cTA7UdhoeNgegPuEhEc9dBXq7jvKryelwuADMdBRkGKMd+fhc/dzUdzpFRpXA==
+fast-creator@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/fast-creator/-/fast-creator-1.6.0.tgz#05621e1aa9e57ba2cef92a31d29caa9371f185d6"
+  integrity sha512-ufcX018lngPfCgIhVaqJdIwE7tXCG8JyvHZLtEQCIiKRkl+LFySl0SDeJK5iN+kjmwrs09R/YUS9FRFly2JGAw==
 
 file-uri-to-path@1.0.0:
   version "1.0.0"

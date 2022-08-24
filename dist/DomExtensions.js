@@ -46,6 +46,26 @@ if (!HTMLCollection.prototype.removeAll) {
   };
 }
 
+if (!NodeList.prototype.removeAll) {
+  NodeList.prototype.removeAll = function () {
+    var copy = Array.prototype.slice.call(this);
+
+    var _iterator2 = _createForOfIteratorHelper(copy),
+        _step2;
+
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var element = _step2.value;
+        element.remove();
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
+  };
+}
+
 HTMLElement.prototype.__defineGetter__('offsetTopFull', function () {
   if (this.offsetParent) return this.offsetParent.offsetTopFull + this.offsetTop;else return this.offsetTop;
 });
